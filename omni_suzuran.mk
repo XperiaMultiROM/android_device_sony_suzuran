@@ -12,16 +12,24 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-include device/sony/kitakami-common/PlatformConfigOmni.mk
+# Assert
+TARGET_OTA_ASSERT_DEVICE := E5823,suzuran
 
-TARGET_SPECIFIC_HEADER_PATH += device/sony/suzuran/include
+# TWRP Recovery
+DEVICE_RESOLUTION := 1280x720
+TW_THEME := portrait_hdpi
+TW_IGNORE_ABS_MT_TRACKING_ID := true
 
-TARGET_BOOTLOADER_BOARD_NAME := E5823
+# Inherit AOSP Rhine common device parts
+$(call inherit-product, device/sony/suzuran/aosp_e5823.mk)
 
-BOARD_KERNEL_CMDLINE += androidboot.hardware=suzuran
+# Inherit Omni GSM telephony parts
+$(call inherit-product, device/sony/common/radio.mk)
+$(call inherit-product, vendor/omni/config/gsm.mk)
 
-TARGET_TAP_TO_WAKE_NODE := "/sys/devices/virtual/input/clearpad/wakeup_gesture"
+# Inherit Omni product configuration
+$(call inherit-product, vendor/omni/config/common.mk)
 
-TARGET_RECOVERY_IS_MULTIROM := true
-MR_DPI := hdpi
-MR_DPI_FONT := 216
+# Override Product Name for OmniROM
+PRODUCT_NAME := omni_suzuran
+PRODUCT_MODEL := Xperia Z5 Compact
