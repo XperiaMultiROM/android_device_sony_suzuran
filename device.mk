@@ -17,9 +17,9 @@ DEVICE_PACKAGE_OVERLAYS += \
 
 PRODUCT_COPY_FILES := \
     device/sony/suzuran/rootdir/system/etc/audio_policy.conf:system/etc/audio_policy.conf \
-    device/sony/suzuran/rootdir/system/etc/BCM4356.hcd:system/etc/firmware/BCM43xx.hcd \
+    device/sony/suzuran/rootdir/system/etc/BCM43455.hcd:system/etc/firmware/BCM43xx.hcd \
     device/sony/suzuran/rootdir/system/etc/wifi/bcmdhd.cal:system/etc/wifi/bcmdhd.cal \
-    device/sony/suzuran/rootdir/system/etc/sensor_def_qcomdev.conf:system/etc/sensor_def_qcomdev.conf \
+    device/sony/suzuran/rootdir/system/etc/sensors/sensor_def_qcomdev.conf:system/etc/sensors/sensor_def_qcomdev.conf \
     device/sony/suzuran/rootdir/system/etc/thermanager.xml:system/etc/thermanager.xml \
     device/sony/suzuran/rootdir/system/etc/libnfc-brcm.conf:system/etc/libnfc-brcm.conf \
     device/sony/suzuran/rootdir/system/etc/libnfc-nxp.conf:system/etc/libnfc-nxp.conf \
@@ -51,6 +51,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     nfc_nci.suzuran
 
+# SimToolKit
+PRODUCT_PACKAGES += \
+    Stk
+
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREBUILT_DPI := xhdpi hdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
@@ -61,4 +65,4 @@ PRODUCT_PROPERTY_OVERRIDES := \
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, device/sony/kitakami-common/platform_omni.mk)
-$(call inherit-product, vendor/sony/suzuran/suzuran-vendor.mk)
+$(call inherit-product, vendor/sony/kitakami-suzuran/suzuran-vendor.mk)
