@@ -47,12 +47,18 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     power.suzuran
 
+# Fingerprint HAL
+PRODUCT_PACKAGES += \
+    fingerprintd \
+    fingerprint.suzuran
+
 # NFC config
 PRODUCT_PACKAGES += \
     nfc_nci.suzuran
 
-# SimToolKit
+# Telephony Packages (AOSP)
 PRODUCT_PACKAGES += \
+    InCallUI \
     Stk
 
 PRODUCT_AAPT_CONFIG := normal
